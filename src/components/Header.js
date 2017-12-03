@@ -6,7 +6,7 @@ const Header = () => {
     <View style={headerContainer}>
       <Text style={header}>CryptoTracker</Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
