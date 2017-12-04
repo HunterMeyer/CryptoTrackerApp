@@ -7,6 +7,7 @@ import {
 const initialState = {
   isFetching: null,
   data: [],
+  totalValue: 0,
   hasError: false,
   errorMessage: null
 }
@@ -18,6 +19,7 @@ export default function(state = initialState, action) {
       return Object.assign({}, {
         isFetching: true,
         data: null,
+        totalValue: null,
         hasError: false,
         errorMessage: null
       });
@@ -26,6 +28,7 @@ export default function(state = initialState, action) {
       return Object.assign({}, {
         isFetching: false,
         data: action.payload,
+        totalValue: action.totalValue,
         hasError: false,
         errorMessage: null
       });
@@ -34,6 +37,7 @@ export default function(state = initialState, action) {
       return Object.assign({}, {
         isFetching: false,
         data: null,
+        totalValue: null,
         hasError: true,
         errorMessage: action.err
       });
