@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { coinIcons } from '../Utils/CoinIcons';
 
-const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_change_7d }) => {
+const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_change_7d, quantity, value }) => {
   return (
     <View style={container}>
       <View style={upperRow}>
@@ -11,6 +11,12 @@ const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_ch
         <Text style={separator}>|</Text>
         <Text style={coinName}>{coin_name}</Text>
         <Text style={coinPrice}>{price_usd}
+          <Text style={moneySymbol}> $ </Text>
+        </Text>
+      </View>
+      <View style={upperRow}>
+        <Text style={coinName}>{quantity}</Text>
+        <Text style={coinPrice}>{value.toFixed(2)}
           <Text style={moneySymbol}> $ </Text>
         </Text>
       </View>

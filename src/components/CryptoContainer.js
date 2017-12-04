@@ -21,9 +21,21 @@ class CryptoContainer extends Component {
         price_usd={coin.price_usd}
         percent_change_24h={coin.percent_change_24h}
         percent_change_7d={coin.percent_change_7d}
+        quantity={coin.quantity}
+        value={coin.value}
       />
     )
-  } 
+  }
+
+  renderTotalValue() {
+    const { crypto } = this.props;
+    const { totalValueContainer } = styles;
+    return (
+      <View style={totalValueContainer}>
+        <Text>Total Value: ${crypto.totalValue.toFixed(2)}</Text>
+      </View>
+    )
+  }
 
   render() {
     const { crypto } = this.props;
@@ -43,9 +55,14 @@ class CryptoContainer extends Component {
     }
 
     return (
-      <ScrollView contentContainerStyle={contentContainer}>
-        { this.renderCoinCards() }
-      </ScrollView>
+      <View>
+        <View>
+          { this.renderTotalValue() }
+        </View>
+        <ScrollView contentContainerStyle={contentContainer}>
+          { this.renderCoinCards() }
+        </ScrollView>
+      </View>
     )
   }
 }
@@ -58,8 +75,12 @@ function mapStateToProps(state) {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    paddingBottom: 100,
-    paddingTop: 50
+    paddingBottom: 180,
+    paddingTop: 10
+  },
+  totalValueContainer: {
+    paddingTop: 10,
+    alignItems: 'center'
   }
 });
 
