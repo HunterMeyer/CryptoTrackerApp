@@ -75,11 +75,12 @@ function mapStateToProps(state) {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    paddingBottom: 180,
+    paddingBottom: 250,
     paddingTop: 10
   },
   totalValueContainer: {
     paddingTop: 10,
+    paddingBottom: 10,
     alignItems: 'center'
   }
 });
